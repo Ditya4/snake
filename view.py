@@ -36,25 +36,25 @@ class Render():
     def draw_field(self, field):
         self.canvas.fill((0, 0, 0))
         for i in range(self.rows):
-            for j in range(self.columns):
-                if field[i][j]:
-                    '''
-                    print(i * self.size,
-                          j * self.size,
-                          field[i][j],
-                          self.colors_decode[
-                              firld[i][j]])
-                    '''
-                    pygame.draw.rect(
-                        self.canvas,
-                        self.colors_decode[field[i][j]],
-                        (j * self.size, i * self.size,
-                         self.size, self.size))
-                    pygame.draw.rect(
-                        self.canvas,
-                        self.colors_decode[0],
-                        (j * self.size, i * self.size,
-                         self.size, self.size), 1)
+                for j in range(self.columns):
+                    if field[i][j]:
+                        '''
+                        print(i * self.size,
+                              j * self.size,
+                              field[i][j],
+                              self.colors_decode[
+                                  firld[i][j]])
+                        '''
+                        pygame.draw.rect(
+                            self.canvas,
+                            self.colors_decode[field[i][j]],
+                            (j * self.size, i * self.size,
+                             self.size, self.size))
+                        pygame.draw.rect(
+                            self.canvas,
+                            self.colors_decode[0],
+                            (j * self.size, i * self.size,
+                             self.size, self.size), 1)
         pygame.display.update()
 
 
