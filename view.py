@@ -8,8 +8,9 @@ class Render():
     We have an array for our game field, filled with integer values,
     every value is a number which is equivalent to color.
     0 - black
-    1 - white (snake)
-    2 - red (target) or maybe we make it like a target.gif
+    1 - white (snake tail)
+    2 - green (snake head)
+    3 - red (target) or maybe we make it like a target.gif
     '''
 
     def __init__(self, rows, columns, size):
@@ -20,7 +21,8 @@ class Render():
         pygame.init()
         self.colors_decode = {0: "black",
                               1: "white",
-                              2: "red",
+                              2: "green",
+                              3: "red",
                               }
 
     def create_canvas(self):

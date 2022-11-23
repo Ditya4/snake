@@ -47,15 +47,19 @@ class Snake():
         self.x = x
         self.direction = direction
         self.tail = Tail()
+        # next lines is test line
+        '''
+        self.tail.add(y - 1, x)
+        self.tail.add(y - 2, x)
+        self.tail.add(y - 3, x)
+        self.tail.add(y - 4, x)
+        self.tail.add(y - 5, x)
+        '''
         self.directions = {"left": (0, -1),
                            "right": (0, 1),
                            "up": (-1, 0),
                            "down": (1, 0),
                            }
-
-    def move(self):
-        # self.
-        pass
 
 
 if __name__ == "__main__":
