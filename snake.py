@@ -1,6 +1,6 @@
 import pygame
 from time import time
-from model import Snake, Field
+from model import Snake, Field, Target
 from view import Render
 import control
 
@@ -20,7 +20,12 @@ delta_t = 1
 render = Render(rows, columns, size)
 field = Field(rows, columns)
 snake = Snake(start_y, start_x, right)
+
 control.fill_field(snake, field)
+target = Target(snake, field)
+# if not target:
+
+control.add_target(target, field)
 start = time()
 done = False
 

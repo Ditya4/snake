@@ -1,4 +1,8 @@
 
+def add_target(target, field):
+    field.field[target.y][target.x] = 3
+
+
 def hit_borders(snake, field):
     '''
     we check is there going to be any collisions between snake head and
@@ -74,7 +78,7 @@ def snake_move(snake, field):
     '''
     tail = snake.tail.tail
     dy, dx = snake.directions[snake.direction]
-    print(dy, dx)
+    # print(dy, dx)
     if not hit_borders(snake, field) and not hit_tail(snake):
         if tail:
             tail.insert(0, (snake.y, snake.x))
