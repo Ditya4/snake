@@ -84,19 +84,22 @@ class Snake():
         tail is going to be a class of snake tail
         directions is going to be a dict with pairs of dy and dx
         indexes change
+        self.rise_tale is boolean which come True if snake hit the target and
+        False, after we added 1 length to snake tail.
         '''
         self.y = y
         self.x = x
         self.direction = direction
         self.tail = Tail()
-        # next lines is test line
-        
+        self.rise_tail = False
         self.tail.add(y - 1, x)
+        # next lines is test line
+        '''
         self.tail.add(y - 2, x)
         self.tail.add(y - 3, x)
         self.tail.add(y - 4, x)
         self.tail.add(y - 5, x)
-        
+        '''
         self.directions = {"left": (0, -1),
                            "right": (0, 1),
                            "up": (-1, 0),
