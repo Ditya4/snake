@@ -60,7 +60,19 @@ def erase_old_snake_with_new_tail(snake, field):
         field.field[y][x] = 0
 
 
-def snake_move(snake, field):
+def check_for_target_hit(snake, targets):
+    '''
+    if snakes head is at the same position a one of targets we delete this
+    target from targets.
+    '''
+    for i in range(len(targets)):
+        if targets[i].y == snake.y and targets[i].x == snake.x:
+            targets.pop(i)
+            return False
+    return True
+
+
+def snake_move(snake, field, targets):
     '''
     condition: next cell, in direction where snake moving should be
     cell with indexes more than 0 and less than size of field.
@@ -72,8 +84,9 @@ def snake_move(snake, field):
     pop last element of the tail and erase this poped element from field.
     After that we erase old snake from the field(remembering, what last element
     of the tail was previously erased),
-    we move head for one position into it direction
-    and call fill_field(snake, field) to fill field with new snake position.
+    we move head for one position into it direction.
+    Check if this move hit the target
+    Call fill_field(snake, field) to fill field with new snake position.
 
     '''
     tail = snake.tail.tail
@@ -87,4 +100,5 @@ def snake_move(snake, field):
         erase_old_snake_with_new_tail(snake, field)
         snake.y += dy
         snake.x += dx
+        check_for_target_hit(snake, targets)
         fill_field(snake, field)

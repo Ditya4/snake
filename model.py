@@ -15,7 +15,7 @@ class Field():
     def create_field(self):
         result = np.zeros(self.rows * self.columns, np.int32).reshape(
                         self.rows, self.columns)
-        result[self.rows - 1] = np.ones(self.columns, np.int32)
+        # result[self.rows - 1] = np.ones(self.columns, np.int32)
         return result
 
     def __str__(self):
@@ -40,7 +40,7 @@ class Target():
         while try_counter_flag:
             try_counter_flag += 1
             if try_counter_flag >= 100:
-                is_empty = self.check_empty(field)
+                is_empty = self._check_empty(field)
                 if not is_empty:
                     self.created = False
                     try_counter_flag = 0
@@ -52,23 +52,6 @@ class Target():
                 self.created = True
                 try_counter_flag = 0
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     def _check_empty(self, field):
         '''
         we check is there any zero cell. if so - return True else return False
@@ -78,14 +61,6 @@ class Target():
                 if not field.field[y][x]:
                     return True
         return False
-
-
-
-
-
-
-
-
 
 
 class Tail():
